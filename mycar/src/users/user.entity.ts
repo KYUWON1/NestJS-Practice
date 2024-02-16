@@ -1,4 +1,5 @@
 import { AfterInsert,AfterRemove,AfterUpdate, Entity, Column, PrimaryGeneratedColumn } from 'typeorm'; //typeorm으로 부터 필요한 데코 import
+//import { Exclude } from 'class-transformer'; //Exclude 데코레이터
 
 //데이터베이스설정 1단계 entity 설정하기
 @Entity() // User라는 테이블 찾거나 만들기 
@@ -10,6 +11,7 @@ export class User {
   email: string;
 
   @Column()
+  //@Exclude() //엔티티에서 exclude 하기위해 데코레이터로 표시 
   password: string;
 
   //사용자 알림 데코레이터들
