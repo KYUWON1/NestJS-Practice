@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 
-@Injectable()
+@Injectable() 
 export class UsersService {
     //의존성주입을 통해 repo와 연동
     //repo에 존재하는 API : create,save,find,findOne,remove.. 다른것도 있음 문서참조
@@ -19,6 +19,9 @@ export class UsersService {
     }
 
     findOne(id: number){
+        if(!id){
+            throw new NotFoundException('사용자 없음');
+        }
         return this.repo.findOneBy({id});
     }
 

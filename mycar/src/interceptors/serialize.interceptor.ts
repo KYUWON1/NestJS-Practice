@@ -16,12 +16,13 @@ interface ClassConstructor {
 }
 
 //커스텀 데코레이터
-export function Serialize(dto: ClassConstructor) {
+export function Serialize(dto: ClassConstructor) { // 타입은 모든 클래스 
   return UseInterceptors(new SerializeInterceptor(dto));
 }
 
 //Nest인터셉트의 메소드를 구체화
 export class SerializeInterceptor implements NestInterceptor {
+  //의존성 주입으로 생성
   constructor(private dto: ClassConstructor) {}
 
   intercept(context: ExecutionContext, handler: CallHandler): Observable<any> {
