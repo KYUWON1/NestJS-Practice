@@ -2,12 +2,11 @@ import { BadRequestException, Injectable, NotFoundException } from "@nestjs/comm
 import  { UsersService } from "./users.service";
 import { randomBytes, scrypt as _scrypt } from "crypto"; //비밀번호 해쉬용,scrypt는 비동기함수, callback 사용해야함
 import { promisify } from "util"; //callback함수를 사용하는것을 promise로 반환해줌
-import { NotFoundError } from "rxjs";
 
 const scrypt = promisify(_scrypt); //scrypt 생성
 
 @Injectable()
-export class AuthService {
+export class AuthService { 
     //의존성 주입으로 userService 생성
     constructor(private usersService:UsersService){}
 
@@ -29,7 +28,7 @@ export class AuthService {
         return user;
     }
 
-    //사용자 찾기 
+    //사용자 로그인
     async signin(email:string, password:string) {
         //사용자 찾기, 배열로 들어옴
         const [user] = await this.usersService.find(email);

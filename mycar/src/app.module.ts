@@ -23,7 +23,7 @@ const cookieSession = require('cookie-session');
       useFactory: (config: ConfigService) => {
         return {
           type: 'sqlite',
-          database: config.get<string>('DB_NAME'),
+          database: config.get<string>('DB_NAME'), // 경로로 설정한 .env파일에서 가져옴 
           synchronize: true,
           entities: [User,Report],
         }

@@ -1,5 +1,4 @@
-//해당 인터셉터가 가장 우선적으로 실행되고, requset로부터 사용자 정보를 받아와서 저장해놓음
-
+//해당 인터셉터가 가장 우선적으로 실행되고, request로부터 사용자 정보를 받아와서 저장해놓음
 import { 
     NestInterceptor,
     ExecutionContext,
